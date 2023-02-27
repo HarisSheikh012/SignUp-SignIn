@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javscript Sign Up From</title>
+    <style>
+        h1 {
+            color: gray;
+            text-align: center;
+        }
+
+        p {
+            color: saddlebrown;
+            text-align: center;
+        }
+
+        button {
+            color: blueviolet;
+        }
+
+        label {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sign Up Form</h1>
+    <form style="text-align:center">
+        <label for="fname" style="padding-right:1%">Username : </label>
+        <input type="text" id="name" placeholder="Username"><br>
+        <label for="pass" style="padding-right:1.2%">Password : </label>
+        <input type="password" id="password" style="margin-top:0.5%" placeholder="Password"><br>
+        <label for="email" style="padding-right:2.8%">Email : </label>
+        <input type="email" id="email" style="margin-top:0.5%" placeholder="Email"><br>
+        <label for="contact" style="padding-right:1.9%">Contact : </label>
+        <input type="number" id="number" style="margin-top:0.5%" placeholder="Contact"><br>
+        <button type="button" onclick="signup()" style="margin-top:0.8%">Sign Up</button>
+        <button type="button" onclick="login()" style="margin-top:0.8%">Login</button>
+    </form>
+    <script>
+        function signup() 
+        {
+            let Name = document.getElementById("name").value;
+            let Password = document.getElementById("password").value;
+            let Email = document.getElementById("email").value;
+            let Number = document.getElementById("number").value;
+            localStorage.setItem("Name",Name);
+            localStorage.setItem("Password",Password);
+            localStorage.setItem("Email",Email);
+            localStorage.setItem("Number",Number);
+            Name = document.getElementById("name").value = "";
+            Password = document.getElementById("password").value = "";
+            Email = document.getElementById("email").value = "";
+            Number = document.getElementById("number").value = "";
+        }
+        function login() 
+        {
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+            let number = document.getElementById("number").value;
+            // for attach login with sign up to//
+            var name1=localStorage.getItem("Name");
+            var password1=localStorage.getItem("Password");
+            var email1=localStorage.getItem("Email");
+            var number1=localStorage.getItem("Number");
+            if (name==name1 && password==password1)
+            {
+                if (email==email1 && number==number1)
+                {
+                window.location.href="home.html";
+                }
+            }
+            else 
+            {
+                alert("Anything is Wrong...");
+            }
+        }
+    </script>
+</body>
+
+</html>
